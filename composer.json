@@ -1,0 +1,25 @@
+{
+  "name": "arendarenko/module-m2-custom-catalog",
+  "description": "CustomCatalog sample module for Magento 2",
+  "type": "magento2-module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alexey Arendarenko",
+      "email": "alexey.arendarenko@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "magento/product-community-edition": "~2.3.3",
+    "magento/module-catalog": "103.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Arendarenko\\CustomCatalog\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}
