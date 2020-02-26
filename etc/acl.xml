@@ -3,8 +3,11 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Arendarenko_CustomCatalog::custom_catalog" sortOrder="10" title="CustomCatalog">
-                    <resource id="Arendarenko_CustomCatalog::config" sortOrder="10" title="CustomCatalog configuration"/>
+                <resource id="Magento_Catalog::catalog">
+                    <resource id="Arendarenko_CustomCatalog::custom_catalog" sortOrder="999" title="Custom Catalog" translate="title">
+                        <resource id="Arendarenko_CustomCatalog::config" sortOrder="10" title="Module configuration" translate="title"/>
+                        <resource id="Arendarenko_CustomCatalog::manage_products" sortOrder="20" title="Products management" translate="title"/>
+                    </resource>
                 </resource>
             </resource>
         </resources>
