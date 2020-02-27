@@ -1,4 +1,19 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Arendarenko\CustomCatalog\Api\Data\CustomProductInterface" type="Arendarenko\CustomCatalog\Model\CustomProduct"/>
+    <preference for="Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface" type="Arendarenko\CustomCatalog\Model\CustomProductRepository"/>
+
+    <virtualType name="Arendarenko\CustomCatalog\Model\ResourceModel\CustomProduct\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">arendarenko_customproduct_entity</argument>
+            <argument name="resourceModel" xsi:type="string">Arendarenko\CustomCatalog\Model\ResourceModel\CustomProduct\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="arendarenko_customcatalog_product_listing_data_source" xsi:type="string">Arendarenko\CustomCatalog\Model\ResourceModel\CustomProduct\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

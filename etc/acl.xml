@@ -3,10 +3,12 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magento_Catalog::catalog">
-                    <resource id="Arendarenko_CustomCatalog::custom_catalog" sortOrder="999" title="Custom Catalog" translate="title">
-                        <resource id="Arendarenko_CustomCatalog::config" sortOrder="10" title="Module configuration" translate="title"/>
-                        <resource id="Arendarenko_CustomCatalog::manage_products" sortOrder="20" title="Products management" translate="title"/>
+                <resource id="Arendarenko_CustomCatalog::custom_catalog" sortOrder="999" title="Custom Catalog" translate="title">
+                    <resource id="Arendarenko_CustomCatalog::config" sortOrder="10" title="Module configuration" translate="title"/>
+                    <resource id="Arendarenko_CustomCatalog::manage_products" sortOrder="20" title="Custom products management" translate="title"/>
+                    <resource id="Arendarenko_CustomCatalog::webapi" sortOrder="30" title="Custom products API" translate="title">
+                        <resource id="Arendarenko_CustomCatalog::webapi_view" sortOrder="10" title="API view permissions" translate="title"/>
+                        <resource id="Arendarenko_CustomCatalog::webapi_update" sortOrder="20" title="API update permissions" translate="title"/>
                     </resource>
                 </resource>
             </resource>

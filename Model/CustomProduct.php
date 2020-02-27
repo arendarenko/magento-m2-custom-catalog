@@ -46,7 +46,7 @@ class CustomProduct extends AbstractModel implements CustomProductInterface
     /**
      * @inheritDoc
      */
-    public function getEntityId(): ?string
+    public function getId(): ?string
     {
         return $this->_getData(self::ENTITY_ID);
     }
@@ -54,7 +54,7 @@ class CustomProduct extends AbstractModel implements CustomProductInterface
     /**
      * @inheritDoc
      */
-    public function setEntityId($entityId): CustomProductInterface
+    public function setId($entityId): CustomProductInterface
     {
         return $this->setData(self::ENTITY_ID, $entityId);
     }

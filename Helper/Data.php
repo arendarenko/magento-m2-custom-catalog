@@ -19,6 +19,8 @@ class Data extends AbstractHelper
 {
     private const MODULE_CONFIG_PATH = 'arendarenko_custom_catalog/';
 
+    public const CUSTOM_PRODUCT_DATA_PERSISTOR_KEY = 'custom_catalog_custom_product';
+
     /**
      * @param null $storeId
      * @return bool

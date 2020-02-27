@@ -30,27 +30,27 @@ class CustomProductSetup extends EavSetup
                 'entity_model' => CustomProductResource::class,
                 'table' => 'arendarenko_customproduct_entity',
                 'attributes' => [
-                    'copy_write_info' => [
-                        'type' => 'text',
-                        'label' => 'Copy Write Info',
-                        'input' => 'textarea',
-                        'required' => false,
-                        'sort_order' => 10,
-                        'is_global' => ScopedAttributeInterface::SCOPE_STORE
-                    ],
                     'vpn' => [
                         'type' => 'static',
                         'label' => 'VPN',
                         'input' => 'text',
                         'unique' => true,
-                        'sort_order' => 20,
+                        'sort_order' => 10,
                     ],
                     'sku' => [
                         'type' => 'static',
                         'label' => 'SKU',
                         'input' => 'text',
                         'unique' => true,
+                        'sort_order' => 20,
+                    ],
+                    'copywrite_info' => [
+                        'type' => 'text',
+                        'label' => 'Copy Write Info',
+                        'input' => 'textarea',
+                        'required' => false,
                         'sort_order' => 30,
+                        'global' => ScopedAttributeInterface::SCOPE_STORE
                     ],
                     'created_at' => [
                         'type' => 'static',

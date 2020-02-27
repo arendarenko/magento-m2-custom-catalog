@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                arendarenko_customcatalog_product_listing.arendarenko_customcatalog_product_listing_data_source
+            </item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>arendarenko_customproduct_columns</spinner>
+        <deps>
+            <dep>arendarenko_customcatalog_product_listing.arendarenko_customcatalog_product_listing_data_source</dep>
+        </deps>
+        <buttons>
+            <button name="add">
+                <url path="*/*/create"/>
+                <class>primary</class>
+                <label translate="true">Add Product</label>
+            </button>
+        </buttons>
+    </settings>
+    <dataSource component="Magento_Ui/js/grid/provider" name="arendarenko_customcatalog_product_listing_data_source">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Arendarenko_CustomCatalog::CustomProduct</aclResource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
+                      name="arendarenko_customcatalog_product_listing_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filters name="listing_filters"/>
+        <massaction name="listing_massaction">
+            <action name="delete">
+                <settings>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete selected products?</message>
+                        <title translate="true">Delete products</title>
+                    </confirm>
+                    <url path="arendarenko_customcatalog/product/massDelete"/>
+                    <type>delete</type>
+                    <label translate="true">Delete</label>
+                </settings>
+            </action>
+        </massaction>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="arendarenko_customproduct_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">
+                        arendarenko_customcatalog_product_listing.arendarenko_customcatalog_product_listing.arendarenko_customproduct_columns.actions
+                    </item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">edit</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <sorting>asc</sorting>
+                <label translate="true">Product ID</label>
+            </settings>
+        </column>
+        <column name="sku" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">SKU</label>
+            </settings>
+        </column>
+        <column name="vpn" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">VPN</label>
+            </settings>
+        </column>
+        <column name="created_at" sortOrder="40">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Created at</label>
+            </settings>
+        </column>
+        <column name="updated_at" sortOrder="50">
+            <settings>
+                <filter>dateRange</filter>
+                <label translate="true">Updated at</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Arendarenko\CustomCatalog\Ui\Component\Listing\Column\Actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editUrlPath" xsi:type="string">arendarenko_customcatalog/product/edit</item>
+                    <item name="deleteUrlPath" xsi:type="string">arendarenko_customcatalog/product/delete</item>
+                    <item name="urlEntityParamName" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

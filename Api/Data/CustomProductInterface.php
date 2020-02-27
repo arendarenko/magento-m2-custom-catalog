@@ -27,15 +27,15 @@ interface CustomProductInterface
     public const UPDATED_AT = 'updated_at';
 
     /**
-     * @return int|null
+     * @return string|null
      */
-    public function getEntityId(): ?string;
+    public function getId(): ?string;
 
     /**
      * @param $entityId
      * @return CustomProductInterface
      */
-    public function setEntityId($entityId): self;
+    public function setId($entityId): self;
 
     /**
      * @return string|null
