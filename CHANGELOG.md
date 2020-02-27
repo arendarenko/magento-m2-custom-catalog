@@ -1,4 +1,7 @@
 # Changelog
-
 CustomCatalog sample module for Magento 2
 
+## [1.0.0] - 2020-27-20
+- Added ability to manipulate custom products in backend
+- Added ability to get product information by it's VPN using web API
+- Added ability to update product asynchronously using Message Queue mechanism
