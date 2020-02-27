@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/product/getByVpn/:vpn" method="GET">
+        <service class="Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface" method="getByVPN"/>
+        <resources>
+            <resource ref="Arendarenko_CustomCatalog::webapi_view"/>
+        </resources>
+    </route>
+
+    <route url="/V1/product/update" method="PUT">
+        <service class="Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface" method="asyncUpdate"/>
+        <resources>
+            <resource ref="Arendarenko_CustomCatalog::webapi_update"/>
+        </resources>
+    </route>
+
+<!--    <route url="/V1/product/updateByVPN" method="PUT">-->
+<!--        <service class="Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface" method="asyncUpdate"/>-->
+<!--        <resources>-->
+<!--            <resource ref="Arendarenko_CustomCatalog::webapi_update"/>-->
+<!--        </resources>-->
+<!--    </route>-->
+</routes>
