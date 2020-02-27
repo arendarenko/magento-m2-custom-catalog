@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">
+                arendarenko_customcatalog_product_form.customproduct_form_data_source
+            </item>
+        </item>
+        <item name="label" translate="true" xsi:type="string">General Information</item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button\Back"/>
+            <button name="delete" class="Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button\Delete"/>
+            <button name="save" class="Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button\Save"/>
+        </buttons>
+        <namespace>arendarenko_customcatalog_product_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>arendarenko_customcatalog_product_form.customproduct_form_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="customproduct_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="*/*/save"/>
+        </settings>
+        <dataProvider class="Arendarenko\CustomCatalog\Ui\Component\CustomProduct\DataProvider"
+                      name="customproduct_form_data_source">
+            <settings>
+                <requestFieldName>entity_id</requestFieldName>
+                <primaryFieldName>entity_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label>General</label>
+        </settings>
+        <field formElement="input" name="vpn" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">vpn</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true">
+                        <![CDATA[<small>Should contain a unique value</small>]]>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">VPN</label>
+                <dataScope>vpn</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field formElement="input" name="sku" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">sku</item>
+                    <item name="additionalInfo" xsi:type="string" translate="true">
+                        <![CDATA[<small>Should contain a unique value</small>]]>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">SKU</label>
+                <dataScope>sku</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
+        <field formElement="textarea" name="copywrite_info" sortOrder="30">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">copywrite_info</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Copy Write Info</label>
+                <dataScope>copywrite_info</dataScope>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">false</rule>
+                </validation>
+            </settings>
+        </field>
+    </fieldset>
+</form>

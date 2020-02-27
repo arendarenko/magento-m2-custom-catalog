@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Arendarenko_CustomCatalog::custom_catalog" sortOrder="999" title="Custom Catalog" translate="title">
+                    <resource id="Arendarenko_CustomCatalog::config" sortOrder="10" title="Module configuration" translate="title"/>
+                    <resource id="Arendarenko_CustomCatalog::manage_products" sortOrder="20" title="Custom products management" translate="title"/>
+                    <resource id="Arendarenko_CustomCatalog::webapi" sortOrder="30" title="Custom products API" translate="title">
+                        <resource id="Arendarenko_CustomCatalog::webapi_view" sortOrder="10" title="API view permissions" translate="title"/>
+                        <resource id="Arendarenko_CustomCatalog::webapi_update" sortOrder="20" title="API update permissions" translate="title"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

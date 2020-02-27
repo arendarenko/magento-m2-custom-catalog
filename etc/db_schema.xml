@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <table name="arendarenko_customproduct_entity" engine="innodb" resource="default">
+        <column identity="true" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <column name="vpn" nullable="false" xsi:type="varchar" />
+        <column name="sku" nullable="false" xsi:type="varchar" />
+        <column name="created_at" on_update="false" nullable="true" default="CURRENT_TIMESTAMP" xsi:type="datetime" />
+        <column name="updated_at" on_update="true" nullable="true" default="CURRENT_TIMESTAMP" xsi:type="datetime" />
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VPN" xsi:type="unique">
+            <column name="vpn"/>
+        </constraint>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_SKU" xsi:type="unique">
+            <column name="sku"/>
+        </constraint>
+    </table>
+
+    <table name="arendarenko_customproduct_entity_datetime" engine="innodb"  resource="default">
+        <column identity="true" name="value_id" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+        <column default="0" identity="false" name="attribute_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="store_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+        <constraint column="attribute_id" onDelete="CASCADE" referenceColumn="attribute_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DATETIME_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" referenceTable="eav_attribute" table="arendarenko_customproduct_entity_datetime" xsi:type="foreign"/>
+        <constraint column="entity_id" onDelete="CASCADE" referenceColumn="entity_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DATETIME_ENTITY_ID_ARENDARENKO_CUSTOMPRODUCT_ENTITY_ENTITY_ID" referenceTable="arendarenko_customproduct_entity" table="arendarenko_customproduct_entity_datetime" xsi:type="foreign"/>
+        <constraint column="store_id" onDelete="CASCADE" referenceColumn="store_id" referenceId="ARENDARENKO_CUSTOMCATALOG_ENTITY_DATETIME_STORE_ID_STORE_STORE_ID" referenceTable="store" table="arendarenko_customproduct_entity_datetime" xsi:type="foreign"/>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_STORE_ID" xsi:type="unique">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DATETIME_ATTRIBUTE_ID">
+            <column name="attribute_id"/>
+        </index>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DATETIME_ENTITY_ID_ATTRIBUTE_ID_VALUE">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="value"/>
+        </index>
+        <column name="value" nullable="false" on_update="false" xsi:type="datetime"/>
+    </table>
+
+    <table name="arendarenko_customproduct_entity_decimal" engine="innodb" resource="default">
+        <column identity="true" name="value_id" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+        <column default="0" identity="false" name="attribute_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="store_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+        <constraint column="attribute_id" onDelete="CASCADE" referenceColumn="attribute_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DECIMAL_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" referenceTable="eav_attribute" table="arendarenko_customproduct_entity_decimal" xsi:type="foreign"/>
+        <constraint column="entity_id" onDelete="CASCADE" referenceColumn="entity_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DECIMAL_ENTITY_ID_ARENDARENKO_CUSTOMPRODUCT_ENTITY_ENTITY_ID" referenceTable="arendarenko_customproduct_entity" table="arendarenko_customproduct_entity_decimal" xsi:type="foreign"/>
+        <constraint column="store_id" onDelete="CASCADE" referenceColumn="store_id" referenceId="ARENDARENKO_CUSTOMCATALOG_ENTITY_DECIMAL_STORE_ID_STORE_STORE_ID" referenceTable="store" table="arendarenko_customproduct_entity_decimal" xsi:type="foreign"/>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_STORE_ID" xsi:type="unique">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DECIMAL_ATTRIBUTE_ID">
+            <column name="attribute_id"/>
+        </index>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_DECIMAL_ENTITY_ID_ATTRIBUTE_ID_VALUE">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="value"/>
+        </index>
+        <column default="0" name="value" nullable="false" precision="12" scale="4" unsigned="false" xsi:type="decimal"/>
+    </table>
+
+    <table name="arendarenko_customproduct_entity_int" engine="innodb" resource="default">
+        <column identity="true" name="value_id" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+        <column default="0" identity="false" name="attribute_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="store_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+        <constraint column="attribute_id" onDelete="CASCADE" referenceColumn="attribute_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_INT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" referenceTable="eav_attribute" table="arendarenko_customproduct_entity_int" xsi:type="foreign"/>
+        <constraint column="entity_id" onDelete="CASCADE" referenceColumn="entity_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_INT_ENTITY_ID_ARENDARENKO_CUSTOMPRODUCT_ENTITY_ENTITY_ID" referenceTable="arendarenko_customproduct_entity" table="arendarenko_customproduct_entity_int" xsi:type="foreign"/>
+        <constraint column="store_id" onDelete="CASCADE" referenceColumn="store_id" referenceId="ARENDARENKO_CUSTOMCATALOG_ENTITY_INT_STORE_ID_STORE_STORE_ID" referenceTable="store" table="arendarenko_customproduct_entity_int" xsi:type="foreign"/>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID" xsi:type="unique">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_INT_ATTRIBUTE_ID">
+            <column name="attribute_id"/>
+        </index>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_VALUE">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="value"/>
+        </index>
+        <column default="0" identity="false" name="value" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+    </table>
+
+    <table name="arendarenko_customproduct_entity_text" engine="innodb" resource="default">
+        <column identity="true" name="value_id" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+        <column default="0" identity="false" name="attribute_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="store_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+        <constraint column="attribute_id" onDelete="CASCADE" referenceColumn="attribute_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_TEXT_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" referenceTable="eav_attribute" table="arendarenko_customproduct_entity_text" xsi:type="foreign"/>
+        <constraint column="entity_id" onDelete="CASCADE" referenceColumn="entity_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_TEXT_ENTITY_ID_ARENDARENKO_CUSTOMPRODUCT_ENTITY_ENTITY_ID" referenceTable="arendarenko_customproduct_entity" table="arendarenko_customproduct_entity_text" xsi:type="foreign"/>
+        <constraint column="store_id" onDelete="CASCADE" referenceColumn="store_id" referenceId="ARENDARENKO_CUSTOMCATALOG_ENTITY_TEXT_STORE_ID_STORE_STORE_ID" referenceTable="store" table="arendarenko_customproduct_entity_text" xsi:type="foreign"/>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_TEXT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID" xsi:type="unique">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_TEXT_ATTRIBUTE_ID">
+            <column name="attribute_id"/>
+        </index>
+        <column name="value" nullable="true" xsi:type="text"/>
+    </table>
+
+    <table name="arendarenko_customproduct_entity_varchar" engine="innodb"  resource="default">
+        <column identity="true" name="value_id" nullable="false" padding="11" unsigned="false" xsi:type="int"/>
+        <column default="0" identity="false" name="attribute_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="store_id" nullable="false" padding="5" unsigned="true" xsi:type="smallint"/>
+        <column default="0" identity="false" name="entity_id" nullable="false" padding="10" unsigned="true" xsi:type="int"/>
+        <constraint referenceId="PRIMARY" xsi:type="primary">
+            <column name="value_id"/>
+        </constraint>
+        <constraint column="attribute_id" onDelete="CASCADE" referenceColumn="attribute_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VARCHAR_ATTRIBUTE_ID_EAV_ATTRIBUTE_ATTRIBUTE_ID" referenceTable="eav_attribute" table="arendarenko_customproduct_entity_varchar" xsi:type="foreign"/>
+        <constraint column="entity_id" onDelete="CASCADE" referenceColumn="entity_id" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VARCHAR_ENTITY_ID_ARENDARENKO_CUSTOMPRODUCT_ENTITY_ENTITY_ID" referenceTable="arendarenko_customproduct_entity" table="arendarenko_customproduct_entity_varchar" xsi:type="foreign"/>
+        <constraint column="store_id" onDelete="CASCADE" referenceColumn="store_id" referenceId="ARENDARENKO_CUSTOMCATALOG_ENTITY_VARCHAR_STORE_ID_STORE_STORE_ID" referenceTable="store" table="arendarenko_customproduct_entity_varchar" xsi:type="foreign"/>
+        <constraint referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_STORE_ID" xsi:type="unique">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="store_id"/>
+        </constraint>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VARCHAR_ATTRIBUTE_ID">
+            <column name="attribute_id"/>
+        </index>
+        <index indexType="btree" referenceId="ARENDARENKO_CUSTOMPRODUCT_ENTITY_VARCHAR_ENTITY_ID_ATTRIBUTE_ID_VALUE">
+            <column name="entity_id"/>
+            <column name="attribute_id"/>
+            <column name="value"/>
+        </index>
+        <column name="value" nullable="true" xsi:type="varchar"/>
+    </table>
+</schema>
