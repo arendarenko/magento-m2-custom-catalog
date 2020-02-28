@@ -230,7 +230,7 @@ class CustomProductRepository implements CustomProductRepositoryInterface
                 ]
             ];
         } catch (\Exception $e) {
-            throw new LocalizedException($e->getMessage());
+            throw new LocalizedException(__($e->getMessage()));
         }
     }
 

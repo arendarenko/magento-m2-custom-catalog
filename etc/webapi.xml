@@ -14,11 +14,4 @@
             <resource ref="Arendarenko_CustomCatalog::webapi_update"/>
         </resources>
     </route>
-
-<!--    <route url="/V1/product/updateByVPN" method="PUT">-->
-<!--        <service class="Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface" method="asyncUpdate"/>-->
-<!--        <resources>-->
-<!--            <resource ref="Arendarenko_CustomCatalog::webapi_update"/>-->
-<!--        </resources>-->
-<!--    </route>-->
 </routes>
