@@ -1,12 +1,13 @@
 # CustomCatalog sample module for Magento 2
 
 This is sample Magento 2 module. It creates "alternative" catalog with products (to be clear, they called "custom products") based on custom EAV entity type.
+It also supports multistore attributes.
 
 Each custom product contains such fields:
 - ID
 - SKU (string, unique, global)
 - VPN (Vendor Product Number, string, unique, global)
-- Copy Write Info (text, global **(at the moment)**)
+- Copy Write Info (text, store scope)
 
 Module provides CRUD functionality for custom products and provides several web API endpoints
 

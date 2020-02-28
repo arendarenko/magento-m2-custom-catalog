@@ -50,14 +50,16 @@ interface CustomProductRepositoryInterface
      * Retrieve CustomProduct
      *
      * @param int $id
+     * @param null $storeId
      * @return CustomProductInterface
      * @throws NoSuchEntityException
      */
-    public function get(int $id): CustomProductInterface;
+    public function get(int $id, $storeId = null): CustomProductInterface;
 
     /**
      * @param string $vpn
      * @return \Arendarenko\CustomCatalog\Api\Data\CustomProductInterface
+     * @throws NoSuchEntityException
      */
     public function getByVPN(string $vpn): CustomProductInterface;
 

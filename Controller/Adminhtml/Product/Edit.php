@@ -60,6 +60,7 @@ class Edit extends CustomProductController
 
         try {
             $entity = $this->detectProduct();
+
             $title = 'Add product';
 
             if($entity instanceof CustomProductInterface) {
@@ -78,8 +79,7 @@ class Edit extends CustomProductController
     }
 
     /**
-     * Detects and load product based on `entity_id` value in request string.
-     * Returns null if id is not provided
+     * Detects and load product based on request param values, otherwise returns null.
      *
      * @return LocaleInterface|null
      * @throws NoSuchEntityException
@@ -87,7 +87,8 @@ class Edit extends CustomProductController
     private function detectProduct(): ?CustomProductInterface
     {
         $id = (int)$this->getRequest()->getParam('entity_id');
+        $storeId = $this->getRequest()->getParam('store', null);
 
-        return $id ? $this->customProductRepository->get($id) : null;
+        return $id ? $this->customProductRepository->get($id, $storeId) : null;
     }
 }

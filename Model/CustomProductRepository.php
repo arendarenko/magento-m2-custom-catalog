@@ -120,9 +120,13 @@ class CustomProductRepository implements CustomProductRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function get(int $id): CustomProductInterface
+    public function get(int $id, $storeId = null): CustomProductInterface
     {
         $customProduct = $this->customProductFactory->create();
+
+        if (null !== $storeId) {
+            $customProduct->setStoreId((int)$storeId);
+        }
 
         $this->customProductResource->load($customProduct, $id);
         if (!$customProduct->getId()) {

@@ -14,7 +14,7 @@ use Magento\Eav\Model\Entity\AbstractEntity;
  * Class CustomProduct
  * @package Arendarenko\CustomCatalog\Model\ResourceModel
  */
-class CustomProduct extends AbstractEntity
+class CustomProduct extends AbstractResource
 {
     protected function _construct()
     {
