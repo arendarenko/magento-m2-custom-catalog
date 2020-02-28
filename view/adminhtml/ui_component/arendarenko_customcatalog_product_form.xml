@@ -94,5 +94,15 @@
                 </validation>
             </settings>
         </field>
+        <field name="store_id" formElement="hidden">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">store_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+            </settings>
+        </field>
     </fieldset>
 </form>

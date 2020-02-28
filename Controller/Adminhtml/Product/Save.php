@@ -69,6 +69,8 @@ class Save extends CustomProductController
             $entity = null;
 
             $entityId = (int)($data['entity_id'] ?? null);
+            $storeId = $data['store_id'] ?? null;
+
             $isSaved = false;
 
             try {
@@ -76,7 +78,8 @@ class Save extends CustomProductController
 
                 $entity->setVpn($data['vpn'] ?? '')
                     ->setSku($data['sku'] ?? '')
-                    ->setCopyWriteInfo($data['copywrite_info'] ?? '');
+                    ->setCopyWriteInfo($data['copywrite_info'] ?? '')
+                    ->setStoreId($storeId);
 
                 $this->validateCustomProduct($entity);
 
@@ -100,7 +103,7 @@ class Save extends CustomProductController
                 if(!$isSaved) {
                     $this->dataPersistor->set(Data::CUSTOM_PRODUCT_DATA_PERSISTOR_KEY, $data);
                 }
-                return $this->processRedirect($entity);
+                return $this->processRedirect($entity, $storeId);
             }
         }
 
