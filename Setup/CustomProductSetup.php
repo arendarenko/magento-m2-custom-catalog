@@ -16,7 +16,6 @@ use Magento\Eav\Setup\EavSetup;
 /**
  * Class CustomProductSetup
  *
- * @package Arendarenko\CustomCatalog\Setup
  */
 class CustomProductSetup extends EavSetup
 {

@@ -20,7 +20,6 @@ use Magento\Framework\Registry;
 
 /**
  * Class Index
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
  */
 class Edit extends CustomProductController
 {
@@ -63,7 +62,7 @@ class Edit extends CustomProductController
 
             $title = 'Add product';
 
-            if($entity instanceof CustomProductInterface) {
+            if ($entity instanceof CustomProductInterface) {
                 $this->registry->register(RegistryLocator::CUSTOM_PRODUCT_REGISTRY_KEY, $entity);
                 $title = 'Edit product';
             }

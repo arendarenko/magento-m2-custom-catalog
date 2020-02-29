@@ -13,7 +13,7 @@ use Magento\Framework\MessageQueue\PublisherInterface;
 
 /**
  * Class UpdatePublisher
- * @package Arendarenko\CustomCatalog\Model
+ *
  */
 class UpdatePublisher
 {
@@ -38,7 +38,8 @@ class UpdatePublisher
      *
      * @param CustomProductInterface $customProduct
      */
-    public function publish(CustomProductInterface $customProduct): void {
+    public function publish(CustomProductInterface $customProduct): void
+    {
         $this->publisher->publish(self::TOPIC_NAME, $customProduct);
     }
 }

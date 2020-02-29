@@ -1,6 +1,10 @@
 # Changelog
 CustomCatalog sample module for Magento 2
 
+## [100.1.1] - 2020-29-20
+- Add example test 
+- Fixed Magento Coding Standards v3 issues
+
 ## [100.1.0] - 2020-28-20
 - Added ability to save attributes per store
 

@@ -17,7 +17,7 @@ use Arendarenko\CustomCatalog\Model\ResourceModel\CustomProduct\Collection;
 
 /**
  * Class CustomProduct
- * @package Arendarenko\CustomCatalog\Model
+ *
  */
 class CustomProduct extends AbstractModel implements CustomProductInterface
 {
@@ -33,6 +33,7 @@ class CustomProduct extends AbstractModel implements CustomProductInterface
      * @param Collection $resourceCollection
      * @param array $data
      */
+    //@codingStandardsIgnoreLine Possible useless method overriding detected
     public function __construct(
         Context $context,
         Registry $registry,

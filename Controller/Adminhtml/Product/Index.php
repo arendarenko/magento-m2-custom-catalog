@@ -14,7 +14,7 @@ use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Class Index
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
+ *
  */
 class Index extends Product
 {

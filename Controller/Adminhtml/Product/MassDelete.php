@@ -17,7 +17,7 @@ use Magento\Backend\App\Action;
 
 /**
  * Class Index
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
+ *
  */
 class MassDelete extends CustomProductController
 {
@@ -70,8 +70,10 @@ class MassDelete extends CustomProductController
                 $this->customProductRepository->delete($customProduct);
             }
 
-            $this->messageManager->addSuccessMessage(__('A total of %1 product(s) have been successfully deleted',
-                $collectionSize));
+            $this->messageManager->addSuccessMessage(__(
+                'A total of %1 product(s) have been successfully deleted',
+                $collectionSize
+            ));
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         }

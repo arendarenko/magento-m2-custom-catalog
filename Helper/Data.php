@@ -13,7 +13,7 @@ use Magento\Store\Model\ScopeInterface;
 
 /**
  * Class Data
- * @package Arendarenko\CustomCatalog\Helper
+ *
  */
 class Data extends AbstractHelper
 {

@@ -12,7 +12,7 @@ use Magento\Eav\Model\Entity\Collection\AbstractCollection;
 
 /**
  * Class CustomProduct
- * @package Arendarenko\CustomCatalog\Model\ResourceModel
+ *
  */
 class Collection extends AbstractCollection
 {

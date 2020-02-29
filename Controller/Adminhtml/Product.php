@@ -14,6 +14,10 @@ use Magento\Backend\Model\View\Result\Page;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Controller\ResultFactory;
 
+/**
+ * Class Product
+ *
+ */
 abstract class Product extends Action
 {
     //@codingStandardsIgnoreLine The use of public non-interface method in ACTION is discouraged.
@@ -33,8 +37,10 @@ abstract class Product extends Action
 
         if ($customProduct && $this->getRequest()->getParam('back')) {
             if ($customProduct->getId()) {
-                return $resultRedirect->setPath('*/*/edit',
-                    ['entity_id' => (int)$customProduct->getId(), 'store' => $storeId]);
+                return $resultRedirect->setPath(
+                    '*/*/edit',
+                    ['entity_id' => (int)$customProduct->getId(), 'store' => $storeId]
+                );
             } else {
                 return $resultRedirect->setPath('*/*/create', ['store' => $storeId]);
             }

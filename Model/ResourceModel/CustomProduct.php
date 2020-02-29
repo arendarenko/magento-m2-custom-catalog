@@ -12,7 +12,7 @@ use Magento\Eav\Model\Entity\AbstractEntity;
 
 /**
  * Class CustomProduct
- * @package Arendarenko\CustomCatalog\Model\ResourceModel
+ *
  */
 class CustomProduct extends AbstractResource
 {
@@ -30,7 +30,8 @@ class CustomProduct extends AbstractResource
      * @return bool
      * @throws \Exception
      */
-    public function isProductExist(int $entityId): bool {
+    public function isProductExist(int $entityId): bool
+    {
         $connection = $this->getConnection();
         $select = $connection->select()->from($this->getEntityTable(), 'entity_id')->where('entity_id = :entity_id');
         $result = $connection->fetchOne($select, [':entity_id' => $entityId]);

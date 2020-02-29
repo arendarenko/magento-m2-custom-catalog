@@ -14,7 +14,6 @@ use Magento\Framework\Controller\ResultFactory;
 
 /**
  * Class New
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
  */
 class Create extends Product
 {

@@ -19,8 +19,6 @@ use Magento\Framework\Exception\StateException;
 
 /**
  * Interface CustomProductRepositoryInterface
- *
- * @package Arendarenko\CustomCatalog\Api
  */
 interface CustomProductRepositoryInterface
 {
@@ -28,8 +26,7 @@ interface CustomProductRepositoryInterface
      * Save CustomProduct
      * @param CustomProductInterface $customProduct
      * @return CustomProductInterface
-     * @throws CouldNotSaveException
-     * @throws AlreadyExistsException
+     * @throws \Exception
      */
     public function save(
         CustomProductInterface $customProduct

@@ -13,7 +13,7 @@ use Magento\Framework\Registry;
 
 /**
  * Class RegistryLocator
- * @package Arendarenko\CustomCatalog\Model
+ *
  */
 class RegistryLocator
 {
@@ -38,7 +38,8 @@ class RegistryLocator
      *
      * @return CustomProductInterface|null
      */
-    public function locate(): ?CustomProductInterface {
+    public function locate(): ?CustomProductInterface
+    {
         $entity = $this->registry->registry(self::CUSTOM_PRODUCT_REGISTRY_KEY);
 
         //Additional check in order to prevent unexpected value

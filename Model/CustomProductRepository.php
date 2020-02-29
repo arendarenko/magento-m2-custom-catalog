@@ -28,7 +28,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class CustomProductRepository
- * @package Arendarenko\CustomCatalog\Model
+ *
  */
 class CustomProductRepository implements CustomProductRepositoryInterface
 {
@@ -100,24 +100,12 @@ class CustomProductRepository implements CustomProductRepositoryInterface
      */
     public function save(CustomProductInterface $customProduct): CustomProductInterface
     {
-        try {
-            if ($customProduct->getStoreId() === null) {
-                $storeId = $this->storeManager->getStore()->getId();
-                $customProduct->setStoreId($storeId);
-            }
-
-            $this->customProductResource->save($customProduct);
-        } catch (AlreadyExistsException $e) {
-            throw $e;
-        } catch (\Exception $e) {
-            throw new CouldNotSaveException(
-                __(
-                    'Could not save custom product: %1',
-                    $e->getMessage()
-                ),
-                $e
-            );
+        if ($customProduct->getStoreId() === null) {
+            $storeId = $this->storeManager->getStore()->getId();
+            $customProduct->setStoreId($storeId);
         }
+
+        $this->customProductResource->save($customProduct);
 
         return $customProduct;
     }

@@ -10,7 +10,6 @@ namespace Arendarenko\CustomCatalog\Api\Data;
 
 /**
  * Interface CustomProductInterface
- * @package Arendarenko\CustomCatalog\Api\Data
  */
 interface CustomProductInterface
 {

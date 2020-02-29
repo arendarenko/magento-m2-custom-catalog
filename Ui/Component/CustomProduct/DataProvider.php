@@ -21,7 +21,8 @@ use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider as Base
 
 /**
  * Class DataProvider
- * @package Arendarenko\CustomCatalog\Ui\Component\CustomProduct
+ *
+ *
  */
 class DataProvider extends BaseDataProvider
 {
@@ -68,8 +69,17 @@ class DataProvider extends BaseDataProvider
         array $meta = [],
         array $data = []
     ) {
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $reporting, $searchCriteriaBuilder, $request,
-            $filterBuilder, $meta, $data);
+        parent::__construct(
+            $name,
+            $primaryFieldName,
+            $requestFieldName,
+            $reporting,
+            $searchCriteriaBuilder,
+            $request,
+            $filterBuilder,
+            $meta,
+            $data
+        );
 
         $this->customProductRegistryLocator = $customProductRegistryLocator;
         $this->dataPersistor = $dataPersistor;
@@ -91,7 +101,7 @@ class DataProvider extends BaseDataProvider
         $this->loadPersistedData($entity);
         $entityData = $entity->getData();
 
-        if(!empty($entityData)) {
+        if (!empty($entityData)) {
             $data[$entity->getId()] = $entity->getData();
         }
 
