@@ -154,7 +154,11 @@ class CustomProductRepository implements CustomProductRepositoryInterface
      */
     public function getByVPN(string $vpn): CustomProductInterface
     {
-        return $this->getByAttribute(CustomProductInterface::VPN, $vpn);
+        try {
+            return $this->getByAttribute(CustomProductInterface::VPN, $vpn);
+        } catch (NoSuchEntityException $e) {
+            throw new LocalizedException(__($e->getMessage()));
+        }
     }
 
     /**
