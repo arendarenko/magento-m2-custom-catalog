@@ -14,6 +14,21 @@ Module provides CRUD functionality for custom products and provides several web 
 ## Supported Magento 2 versions
 Magento 2.3.*
 
+## Module installation
+To install module follow next steps:
+1. Add `https://github.com/arendarenko/module-m2-custom-catalog/` as repository to your `composer.json`:
+```
+"repositories": [
+        ...
+	{
+            "type": "vcs",
+            "url": "https://github.com/arendarenko/module-m2-custom-catalog"
+        }
+]
+```
+2. Run `composer require arendarenko/module-m2-custom-catalog`
+3. Run `bin/magento setup:upgrade`
+
 ## Module configuration and usage
 Module is enabled by default.
  
@@ -35,7 +50,8 @@ Requires such ACL permissions: `Arendarenko_CustomCatalog::webapi_update`
 
 Example request body (make sure you have product with ID = 1!):
 
-`{
+```
+{
 	"customProduct":
 	{
 		"id": 1,
@@ -43,7 +59,8 @@ Example request body (make sure you have product with ID = 1!):
 		"vpn": "999111",
 		"copy_write_info": "Actually I would prefer to be named 'copyright info', but..."
 	}
-}`
+}
+```
 
-## Few notes about Message Queue
+## Start message queue consumer
 In order to start module consumer manually please run: `magento queue:consumers:start CustomCatalogProductUpdate`
