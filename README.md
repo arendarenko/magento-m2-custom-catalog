@@ -12,7 +12,7 @@ Each custom product contains such attributes:
 Module provides CRUD functionality for custom products and provides several web API endpoints
 
 ## Supported Magento 2 versions
-Magento 2.3.3+ (probably it supports **2.3.x** but not tested yet).
+Magento 2.3.*
 
 ## Module configuration and usage
 Module is enabled by default.

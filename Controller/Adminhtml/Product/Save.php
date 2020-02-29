@@ -69,7 +69,7 @@ class Save extends CustomProductController
             $entity = null;
 
             $entityId = (int)($data['entity_id'] ?? null);
-            $storeId = $data['store_id'] ?? null;
+            $storeId = $data['store_id'] ?? 0;
 
             $isSaved = false;
 
