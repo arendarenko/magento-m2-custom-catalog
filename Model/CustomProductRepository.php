@@ -101,6 +101,11 @@ class CustomProductRepository implements CustomProductRepositoryInterface
     public function save(CustomProductInterface $customProduct): CustomProductInterface
     {
         try {
+            if ($customProduct->getStoreId() === null) {
+                $storeId = $this->storeManager->getStore()->getId();
+                $customProduct->setStoreId($storeId);
+            }
+
             $this->customProductResource->save($customProduct);
         } catch (AlreadyExistsException $e) {
             throw $e;

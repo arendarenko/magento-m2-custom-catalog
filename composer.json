@@ -9,9 +9,8 @@
       "email": "alexey.arendarenko@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
   "require": {
-    "magento/product-community-edition": "~2.3.3",
+    "magento/product-community-edition": "2.3.*",
     "magento/module-catalog": "103.0.*"
   },
   "autoload": {
