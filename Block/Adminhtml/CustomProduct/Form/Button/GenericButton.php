@@ -15,7 +15,7 @@ use Magento\Framework\UrlInterface;
 /**
  * Class GenericButton
  *
- * @package Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button
+ * Default class for Custom Products buttons in backend area. Shouldn't be used directly
  */
 class GenericButton
 {

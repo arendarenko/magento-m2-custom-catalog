@@ -22,7 +22,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class AbstractResource
- * @package Arendarenko\CustomCatalog\Model\ResourceModel
+ *
  */
 abstract class AbstractResource extends AbstractEntity
 {
@@ -119,7 +119,7 @@ abstract class AbstractResource extends AbstractEntity
         $connection = $this->getConnection();
         $hasSingleStore = $this->storeManager->hasSingleStore();
 
-        if($hasSingleStore || !$object->getStoreId()) {
+        if ($hasSingleStore || !$object->getStoreId()) {
             $storeId = $this->getDefaultStoreId();
         } else {
             $storeId = (int)$this->storeManager->getStore($object->getStoreId())->getId();

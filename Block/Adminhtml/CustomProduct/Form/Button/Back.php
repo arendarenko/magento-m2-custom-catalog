@@ -12,8 +12,6 @@ use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
  * Class Back
- *
- * @package Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button
  */
 class Back extends GenericButton implements ButtonProviderInterface
 {

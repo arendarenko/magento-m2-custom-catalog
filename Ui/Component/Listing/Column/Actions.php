@@ -16,7 +16,6 @@ use Magento\Ui\Component\Listing\Columns\Column;
 /**
  * Class Action
  *
- * @package Ven\TranslateCustomOptions\Ui\Component\Banner\Listing
  */
 class Actions extends Column
 {
@@ -60,7 +59,7 @@ class Actions extends Column
 
             foreach ($dataSource['data']['items'] as &$item) {
                 $entityId = $item['entity_id'] ?? 0;
-                if(!$entityId) {
+                if (!$entityId) {
                     continue;
                 }
 

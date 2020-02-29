@@ -13,8 +13,6 @@ use Magento\Ui\Component\Control\Container;
 
 /**
  * Class Save
- *
- * @package Arendarenko\CustomCatalog\Block\Adminhtml\CustomProduct\Form\Button
  */
 class Save extends GenericButton implements ButtonProviderInterface
 {

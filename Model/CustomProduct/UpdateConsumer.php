@@ -14,7 +14,7 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class UpdateConsumer
- * @package Arendarenko\CustomCatalog\Model\CustomProduct
+ *
  */
 class UpdateConsumer
 {
@@ -47,8 +47,10 @@ class UpdateConsumer
         try {
             $this->customProductRepository->save($customProduct);
         } catch (\Exception $e) {
-            $this->logger->warning((string)$e,
-                ['module' => 'Arendarenko_CustomCatalog', 'method' => 'UpdateConsumer::process']);
+            $this->logger->warning(
+                (string)$e,
+                ['module' => 'Arendarenko_CustomCatalog', 'method' => 'UpdateConsumer::process']
+            );
         }
     }
 }

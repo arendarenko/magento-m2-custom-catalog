@@ -14,7 +14,6 @@ use Magento\Backend\App\Action;
 
 /**
  * Class Index
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
  */
 class Delete extends CustomProductController
 {

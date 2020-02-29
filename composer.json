@@ -13,6 +13,9 @@
     "magento/product-community-edition": "2.3.*",
     "magento/module-catalog": "103.0.*"
   },
+  "require-dev": {
+    "magento/magento-coding-standard": "3"
+  },
   "autoload": {
     "psr-4": {
       "Arendarenko\\CustomCatalog\\": ""

@@ -15,7 +15,7 @@ use Arendarenko\CustomCatalog\Setup\CustomProductSetupFactory;
 
 /**
  * Class SetupCustomProductEntity
- * @package Arendarenko\CustomCatalog\Setup\Patch\Data
+ *
  */
 class SetupCustomProductEntity implements DataPatchInterface
 {

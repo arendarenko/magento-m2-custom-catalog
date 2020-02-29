@@ -20,8 +20,6 @@ use Arendarenko\CustomCatalog\Api\CustomProductRepositoryInterface;
  * Class CustomProductRepositoryTest
  *
  * Example functional test for one of web API methods
- *
- * @package Arendarenko\CustomCatalog\Test\Unit\Api
  */
 class CustomProductRepositoryTest extends WebapiAbstract
 {

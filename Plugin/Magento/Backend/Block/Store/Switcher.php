@@ -15,8 +15,6 @@ use Magento\Framework\App\RequestInterface;
  * Class Switcher
  *
  * This plugin is designed to hide store switcher block when creating new custom product.
- *
- * @package Arendarenko\CustomCatalog\Plugin\Magento\Backend\Block\Store
  */
 class Switcher
 {
@@ -45,17 +43,17 @@ class Switcher
         OriginalSwitcher $subject,
         $result
     ) {
-        if(!(bool)$result) {
+        if (!(bool)$result) {
             return $result;
         }
 
         $fullActionName = $this->request->getFullActionName();
-        if($fullActionName !== self::CUSTOMCATALOG_EDIT_ACTION_NAME) {
+        if ($fullActionName !== self::CUSTOMCATALOG_EDIT_ACTION_NAME) {
             return $result;
         }
 
         $entityId = (int)$this->request->getParam('entity_id');
-        if(!$entityId) {
+        if (!$entityId) {
             $result = false;
         }
 

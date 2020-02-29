@@ -20,7 +20,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 
 /**
  * Class Index
- * @package Arendarenko\CustomCatalog\Controller\Adminhtml\Product
+ *
  */
 class Save extends CustomProductController
 {
@@ -98,9 +98,9 @@ class Save extends CustomProductController
             } catch (AlreadyExistsException $e) {
                 $this->messageManager->addErrorMessage(__('SKU and VPN should be unique'));
             } catch (\Exception $e) {
-                $this->messageManager->addErrorMessage($e->getMessage());
+                $this->messageManager->addErrorMessage(__('Something went wrong during saving product: %1', $e->getMessage()));
             } finally {
-                if(!$isSaved) {
+                if (!$isSaved) {
                     $this->dataPersistor->set(Data::CUSTOM_PRODUCT_DATA_PERSISTOR_KEY, $data);
                 }
                 return $this->processRedirect($entity, $storeId);
